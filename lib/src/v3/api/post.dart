@@ -256,7 +256,7 @@ class GetSiteMetadata
   factory GetSiteMetadata.fromJson(Map<String, dynamic> json) =>
       _$GetSiteMetadataFromJson(json);
 
-  final path = '/post/site_metadata';
+  final path = '';
 
   final httpMethod = HttpMethod.get;
 

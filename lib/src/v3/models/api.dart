@@ -13,7 +13,7 @@ class FullCommunityView with _$FullCommunityView {
     required CommunityView communityView,
     required Site? site,
     required List<CommunityModeratorView> moderators,
-    required int online,
+    int? online,
     required String instanceHost,
   }) = _FullCommunityView;
 
@@ -29,9 +29,9 @@ class FullPostView with _$FullPostView {
   const factory FullPostView({
     required PostView postView,
     required CommunityView communityView,
-    required List<CommentView> comments,
+    List<CommentView>? comments,
     required List<CommunityModeratorView> moderators,
-    required int online,
+    int? online,
     required String instanceHost,
   }) = _FullPostView;
 
@@ -64,7 +64,7 @@ class Modlog with _$Modlog {
   const factory Modlog({
     required List<ModRemovePostView> removedPosts,
     required List<ModLockPostView> lockedPosts,
-    required List<ModStickyPostView> stickiedPosts,
+    List<ModStickyPostView>? stickiedPosts,
     required List<ModRemoveCommentView> removedComments,
     required List<ModRemoveCommunityView> removedCommunities,
     required List<ModBanFromCommunityView> bannedFromCommunity,
@@ -101,7 +101,7 @@ class FullSiteView with _$FullSiteView {
   const factory FullSiteView({
     SiteView? siteView,
     required List<PersonViewSafe> admins,
-    required int online,
+    int? online,
     required String version,
     MyUserInfo? myUser,
     FederatedInstances? federatedInstances,

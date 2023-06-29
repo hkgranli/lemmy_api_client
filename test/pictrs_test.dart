@@ -3,17 +3,45 @@ import 'dart:io';
 import 'package:lemmy_api_client/pictrs.dart';
 import 'package:test/test.dart';
 
+import 'v3/util.dart';
+
 void main() {
   group('pictrs', () {
-    const pictrs = PictrsApi('lemmy.ml');
+    final pictrs = PictrsApi(federation!);
 
     test('successful upload and delete', () async {
       final res = await pictrs.upload(
         filePath: 'test/test.png',
-        auth: Platform.environment['TEST_JWT']!,
+        auth: goodAuth,
       );
+
+      try {
+        const rs = PictrsUploadFile(deleteToken: '123', file: 'test.jpg');
+        await pictrs.delete(rs);
+      } on LemmyApiException catch (err) {
+        expect(err.message, 'pictrs_wrong_delete_token');
+      }
+
       await pictrs.delete(res.files[0]);
     });
+
+    /*
+    test('fails to delete with a wrong token', () async {
+      try {
+        const rs = PictrsUploadFile(deleteToken: '123', file: 'test.jpg');
+        await pictrs.delete(rs);
+      } on LemmyApiException catch (err) {
+        expect(err.message, 'pictrs_wrong_delete_token');
+      }
+    });
+    */
+
+    /*
+    test('fails to delete with a wrong token', () async {
+        const rs = (deleteToken: '123', file: 'test.jpg');
+        await pictrs.delete(rs);
+    });
+    */
 
     group('delete', () {
       test('fails to delete a not existing resource', () async {
@@ -22,16 +50,6 @@ void main() {
           await pictrs.delete(rs);
         } on LemmyApiException catch (err) {
           expect(err.message, 'pictrs_not_found');
-        }
-      });
-
-      test('fails to delete with a wrong token', () async {
-        try {
-          const rs =
-              PictrsUploadFile(deleteToken: '123', file: 'r4ThsBI1dQ.jpg');
-          await pictrs.delete(rs);
-        } on LemmyApiException catch (err) {
-          expect(err.message, 'pictrs_wrong_delete_token');
         }
       });
     });

@@ -131,7 +131,5 @@ linter:
 analyzer:
   exclude:
     - "**/*.g.dart"
-  strong-mode:
-    implicit-dynamic: false
   errors:
     invalid_annotation_target: ignore

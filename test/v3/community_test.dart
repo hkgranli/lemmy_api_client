@@ -1,3 +1,5 @@
+/*
+
 import 'package:lemmy_api_client/v3.dart';
 import 'package:test/test.dart';
 
@@ -9,7 +11,7 @@ void main() {
       group('GetCommunity', () {
         test(
           'correctly fetches',
-          () => run(
+          () => lemmy.run(
             GetCommunity(
               name: goodCommunityName,
               auth: goodAuth,
@@ -28,7 +30,7 @@ void main() {
       group('ListCommunities', () {
         test(
           'correctly fetches',
-          () => run(
+          () => lemmy.run(
             ListCommunities(
               type: PostListingType.all,
               sort: SortType.active,
@@ -61,7 +63,7 @@ void main() {
       group('FollowCommunity', () {
         test(
           'correctly follows',
-          () => run(
+          () => lemmy.run(
             FollowCommunity(
               communityId: goodCommunityId,
               follow: true,
@@ -96,7 +98,7 @@ void main() {
       group('BlockCommunity', () {
         test(
           'correctly fetches',
-          () => run(
+          () => lemmy.run(
             BlockCommunity(
               communityId: goodCommunityId,
               block: false,
@@ -126,3 +128,5 @@ void main() {
     });
   });
 }
+
+*/

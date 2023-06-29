@@ -17,7 +17,7 @@ _$_FullCommunityView _$$_FullCommunityViewFromJson(Map<String, dynamic> json) =>
           .map(
               (e) => CommunityModeratorView.fromJson(e as Map<String, dynamic>))
           .toList(),
-      online: json['online'] as int,
+      online: json['online'] as int?,
       instanceHost: json['instance_host'] as String,
     );
 
@@ -36,14 +36,14 @@ _$_FullPostView _$$_FullPostViewFromJson(Map<String, dynamic> json) =>
       postView: PostView.fromJson(json['post_view'] as Map<String, dynamic>),
       communityView: CommunityView.fromJson(
           json['community_view'] as Map<String, dynamic>),
-      comments: (json['comments'] as List<dynamic>)
-          .map((e) => CommentView.fromJson(e as Map<String, dynamic>))
+      comments: (json['comments'] as List<dynamic>?)
+          ?.map((e) => CommentView.fromJson(e as Map<String, dynamic>))
           .toList(),
       moderators: (json['moderators'] as List<dynamic>)
           .map(
               (e) => CommunityModeratorView.fromJson(e as Map<String, dynamic>))
           .toList(),
-      online: json['online'] as int,
+      online: json['online'] as int?,
       instanceHost: json['instance_host'] as String,
     );
 
@@ -51,7 +51,7 @@ Map<String, dynamic> _$$_FullPostViewToJson(_$_FullPostView instance) =>
     <String, dynamic>{
       'post_view': instance.postView.toJson(),
       'community_view': instance.communityView.toJson(),
-      'comments': instance.comments.map((e) => e.toJson()).toList(),
+      'comments': instance.comments?.map((e) => e.toJson()).toList(),
       'moderators': instance.moderators.map((e) => e.toJson()).toList(),
       'online': instance.online,
       'instance_host': instance.instanceHost,
@@ -92,8 +92,8 @@ _$_Modlog _$$_ModlogFromJson(Map<String, dynamic> json) => _$_Modlog(
       lockedPosts: (json['locked_posts'] as List<dynamic>)
           .map((e) => ModLockPostView.fromJson(e as Map<String, dynamic>))
           .toList(),
-      stickiedPosts: (json['stickied_posts'] as List<dynamic>)
-          .map((e) => ModStickyPostView.fromJson(e as Map<String, dynamic>))
+      stickiedPosts: (json['stickied_posts'] as List<dynamic>?)
+          ?.map((e) => ModStickyPostView.fromJson(e as Map<String, dynamic>))
           .toList(),
       removedComments: (json['removed_comments'] as List<dynamic>)
           .map((e) => ModRemoveCommentView.fromJson(e as Map<String, dynamic>))
@@ -126,7 +126,7 @@ _$_Modlog _$$_ModlogFromJson(Map<String, dynamic> json) => _$_Modlog(
 Map<String, dynamic> _$$_ModlogToJson(_$_Modlog instance) => <String, dynamic>{
       'removed_posts': instance.removedPosts.map((e) => e.toJson()).toList(),
       'locked_posts': instance.lockedPosts.map((e) => e.toJson()).toList(),
-      'stickied_posts': instance.stickiedPosts.map((e) => e.toJson()).toList(),
+      'stickied_posts': instance.stickiedPosts?.map((e) => e.toJson()).toList(),
       'removed_comments':
           instance.removedComments.map((e) => e.toJson()).toList(),
       'removed_communities':
@@ -169,7 +169,7 @@ _$_FullSiteView _$$_FullSiteViewFromJson(Map<String, dynamic> json) =>
       admins: (json['admins'] as List<dynamic>)
           .map((e) => PersonViewSafe.fromJson(e as Map<String, dynamic>))
           .toList(),
-      online: json['online'] as int,
+      online: json['online'] as int?,
       version: json['version'] as String,
       myUser: json['my_user'] == null
           ? null

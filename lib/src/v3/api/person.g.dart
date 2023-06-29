@@ -60,9 +60,9 @@ _$_SaveUserSettings _$$_SaveUserSettingsFromJson(Map<String, dynamic> json) =>
     _$_SaveUserSettings(
       showNsfw: json['show_nsfw'] as bool?,
       theme: json['theme'] as String?,
-      defaultSortType: sortTypeFromIndex(json['default_sort_type'] as int),
+      defaultSortType: sortTypeFromString(json['default_sort_type'] as String),
       defaultListingType:
-          postListingTypeFromIndex(json['default_listing_type'] as int),
+          postListingTypeFromString(json['default_listing_type'] as String),
       lang: json['lang'] as String?,
       avatar: json['avatar'] as String?,
       banner: json['banner'] as String?,
@@ -91,9 +91,9 @@ Map<String, dynamic> _$$_SaveUserSettingsToJson(_$_SaveUserSettings instance) {
 
   writeNotNull('show_nsfw', instance.showNsfw);
   writeNotNull('theme', instance.theme);
-  writeNotNull('default_sort_type', sortTypeToIndex(instance.defaultSortType));
+  writeNotNull('default_sort_type', sortTypeToString(instance.defaultSortType));
   writeNotNull('default_listing_type',
-      postListingTypeToIndex(instance.defaultListingType));
+      postListingTypeToString(instance.defaultListingType));
   writeNotNull('lang', instance.lang);
   writeNotNull('avatar', instance.avatar);
   writeNotNull('banner', instance.banner);
