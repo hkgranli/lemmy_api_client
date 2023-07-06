@@ -519,7 +519,7 @@ class WsEventGetCaptcha extends WsEvent<Captcha> {
   const WsEventGetCaptcha(super.data);
 }
 
-class WsEventSaveUserSettings extends WsEvent<Jwt> {
+class WsEventSaveUserSettings extends WsEvent<LoginResponse> {
   const WsEventSaveUserSettings(super.data);
 }
 
@@ -595,7 +595,7 @@ class WsEventResolveObject extends WsEvent<ResolveObjectResponse> {
   const WsEventResolveObject(super.data);
 }
 
-class WsEventGetSiteMetadata extends WsEvent<SiteMetadata> {
+class WsEventGetSiteMetadata extends WsEvent<GetSiteMetadataResponse> {
   const WsEventGetSiteMetadata(super.data);
 }
 

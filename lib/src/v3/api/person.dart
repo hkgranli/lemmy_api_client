@@ -79,7 +79,7 @@ class GetCaptcha with _$GetCaptcha implements LemmyApiQuery<Captcha> {
 }
 
 @freezed
-class SaveUserSettings with _$SaveUserSettings implements LemmyApiQuery<Jwt> {
+class SaveUserSettings with _$SaveUserSettings implements LemmyApiQuery<LoginResponse> {
   @apiSerde
   const factory SaveUserSettings({
     bool? showNsfw,
@@ -117,7 +117,9 @@ class SaveUserSettings with _$SaveUserSettings implements LemmyApiQuery<Jwt> {
   final httpMethod = HttpMethod.put;
 
   @override
-  Jwt responseFactory(Map<String, dynamic> json) => Jwt.fromJson(json['jwt']);
+  //Jwt responseFactory(Map<String, dynamic> json) => Jwt.fromJson(json['jwt']);
+  LoginResponse responseFactory(Map<String, dynamic> json) =>
+      LoginResponse.fromJson(json);
 }
 
 @freezed

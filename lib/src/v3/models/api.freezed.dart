@@ -3511,6 +3511,164 @@ abstract class _ResolveObjectResponse extends ResolveObjectResponse {
       throw _privateConstructorUsedError;
 }
 
+GetSiteMetadataResponse _$GetSiteMetadataResponseFromJson(
+    Map<String, dynamic> json) {
+  return _GetSiteMetadataResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$GetSiteMetadataResponse {
+  SiteMetadata get metadata => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetSiteMetadataResponseCopyWith<GetSiteMetadataResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GetSiteMetadataResponseCopyWith<$Res> {
+  factory $GetSiteMetadataResponseCopyWith(GetSiteMetadataResponse value,
+          $Res Function(GetSiteMetadataResponse) then) =
+      _$GetSiteMetadataResponseCopyWithImpl<$Res, GetSiteMetadataResponse>;
+  @useResult
+  $Res call({SiteMetadata metadata});
+
+  $SiteMetadataCopyWith<$Res> get metadata;
+}
+
+/// @nodoc
+class _$GetSiteMetadataResponseCopyWithImpl<$Res,
+        $Val extends GetSiteMetadataResponse>
+    implements $GetSiteMetadataResponseCopyWith<$Res> {
+  _$GetSiteMetadataResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? metadata = null,
+  }) {
+    return _then(_value.copyWith(
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as SiteMetadata,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SiteMetadataCopyWith<$Res> get metadata {
+    return $SiteMetadataCopyWith<$Res>(_value.metadata, (value) {
+      return _then(_value.copyWith(metadata: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_GetSiteMetadataResponseCopyWith<$Res>
+    implements $GetSiteMetadataResponseCopyWith<$Res> {
+  factory _$$_GetSiteMetadataResponseCopyWith(_$_GetSiteMetadataResponse value,
+          $Res Function(_$_GetSiteMetadataResponse) then) =
+      __$$_GetSiteMetadataResponseCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({SiteMetadata metadata});
+
+  @override
+  $SiteMetadataCopyWith<$Res> get metadata;
+}
+
+/// @nodoc
+class __$$_GetSiteMetadataResponseCopyWithImpl<$Res>
+    extends _$GetSiteMetadataResponseCopyWithImpl<$Res,
+        _$_GetSiteMetadataResponse>
+    implements _$$_GetSiteMetadataResponseCopyWith<$Res> {
+  __$$_GetSiteMetadataResponseCopyWithImpl(_$_GetSiteMetadataResponse _value,
+      $Res Function(_$_GetSiteMetadataResponse) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? metadata = null,
+  }) {
+    return _then(_$_GetSiteMetadataResponse(
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as SiteMetadata,
+    ));
+  }
+}
+
+/// @nodoc
+
+@modelSerde
+class _$_GetSiteMetadataResponse extends _GetSiteMetadataResponse {
+  const _$_GetSiteMetadataResponse({required this.metadata}) : super._();
+
+  factory _$_GetSiteMetadataResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_GetSiteMetadataResponseFromJson(json);
+
+  @override
+  final SiteMetadata metadata;
+
+  @override
+  String toString() {
+    return 'GetSiteMetadataResponse(metadata: $metadata)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetSiteMetadataResponse &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, metadata);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetSiteMetadataResponseCopyWith<_$_GetSiteMetadataResponse>
+      get copyWith =>
+          __$$_GetSiteMetadataResponseCopyWithImpl<_$_GetSiteMetadataResponse>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_GetSiteMetadataResponseToJson(
+      this,
+    );
+  }
+}
+
+abstract class _GetSiteMetadataResponse extends GetSiteMetadataResponse {
+  const factory _GetSiteMetadataResponse(
+      {required final SiteMetadata metadata}) = _$_GetSiteMetadataResponse;
+  const _GetSiteMetadataResponse._() : super._();
+
+  factory _GetSiteMetadataResponse.fromJson(Map<String, dynamic> json) =
+      _$_GetSiteMetadataResponse.fromJson;
+
+  @override
+  SiteMetadata get metadata;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetSiteMetadataResponseCopyWith<_$_GetSiteMetadataResponse>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 SiteMetadata _$SiteMetadataFromJson(Map<String, dynamic> json) {
   return _SiteMetadata.fromJson(json);
 }
@@ -3519,9 +3677,9 @@ SiteMetadata _$SiteMetadataFromJson(Map<String, dynamic> json) {
 mixin _$SiteMetadata {
   String? get title => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  String? get html => throw _privateConstructorUsedError;
-  String get instanceHost => throw _privateConstructorUsedError;
+  String? get image =>
+      throw _privateConstructorUsedError; // ignore: non_constant_identifier_names
+  String? get embed_video_url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3539,8 +3697,7 @@ abstract class $SiteMetadataCopyWith<$Res> {
       {String? title,
       String? description,
       String? image,
-      String? html,
-      String instanceHost});
+      String? embed_video_url});
 }
 
 /// @nodoc
@@ -3559,8 +3716,7 @@ class _$SiteMetadataCopyWithImpl<$Res, $Val extends SiteMetadata>
     Object? title = freezed,
     Object? description = freezed,
     Object? image = freezed,
-    Object? html = freezed,
-    Object? instanceHost = null,
+    Object? embed_video_url = freezed,
   }) {
     return _then(_value.copyWith(
       title: freezed == title
@@ -3575,14 +3731,10 @@ class _$SiteMetadataCopyWithImpl<$Res, $Val extends SiteMetadata>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      html: freezed == html
-          ? _value.html
-          : html // ignore: cast_nullable_to_non_nullable
+      embed_video_url: freezed == embed_video_url
+          ? _value.embed_video_url
+          : embed_video_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      instanceHost: null == instanceHost
-          ? _value.instanceHost
-          : instanceHost // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -3599,8 +3751,7 @@ abstract class _$$_SiteMetadataCopyWith<$Res>
       {String? title,
       String? description,
       String? image,
-      String? html,
-      String instanceHost});
+      String? embed_video_url});
 }
 
 /// @nodoc
@@ -3617,8 +3768,7 @@ class __$$_SiteMetadataCopyWithImpl<$Res>
     Object? title = freezed,
     Object? description = freezed,
     Object? image = freezed,
-    Object? html = freezed,
-    Object? instanceHost = null,
+    Object? embed_video_url = freezed,
   }) {
     return _then(_$_SiteMetadata(
       title: freezed == title
@@ -3633,14 +3783,10 @@ class __$$_SiteMetadataCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      html: freezed == html
-          ? _value.html
-          : html // ignore: cast_nullable_to_non_nullable
+      embed_video_url: freezed == embed_video_url
+          ? _value.embed_video_url
+          : embed_video_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      instanceHost: null == instanceHost
-          ? _value.instanceHost
-          : instanceHost // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -3650,11 +3796,7 @@ class __$$_SiteMetadataCopyWithImpl<$Res>
 @modelSerde
 class _$_SiteMetadata extends _SiteMetadata {
   const _$_SiteMetadata(
-      {this.title,
-      this.description,
-      this.image,
-      this.html,
-      required this.instanceHost})
+      {this.title, this.description, this.image, this.embed_video_url})
       : super._();
 
   factory _$_SiteMetadata.fromJson(Map<String, dynamic> json) =>
@@ -3666,14 +3808,13 @@ class _$_SiteMetadata extends _SiteMetadata {
   final String? description;
   @override
   final String? image;
+// ignore: non_constant_identifier_names
   @override
-  final String? html;
-  @override
-  final String instanceHost;
+  final String? embed_video_url;
 
   @override
   String toString() {
-    return 'SiteMetadata(title: $title, description: $description, image: $image, html: $html, instanceHost: $instanceHost)';
+    return 'SiteMetadata(title: $title, description: $description, image: $image, embed_video_url: $embed_video_url)';
   }
 
   @override
@@ -3685,15 +3826,14 @@ class _$_SiteMetadata extends _SiteMetadata {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.image, image) || other.image == image) &&
-            (identical(other.html, html) || other.html == html) &&
-            (identical(other.instanceHost, instanceHost) ||
-                other.instanceHost == instanceHost));
+            (identical(other.embed_video_url, embed_video_url) ||
+                other.embed_video_url == embed_video_url));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, title, description, image, html, instanceHost);
+      Object.hash(runtimeType, title, description, image, embed_video_url);
 
   @JsonKey(ignore: true)
   @override
@@ -3714,8 +3854,7 @@ abstract class _SiteMetadata extends SiteMetadata {
       {final String? title,
       final String? description,
       final String? image,
-      final String? html,
-      required final String instanceHost}) = _$_SiteMetadata;
+      final String? embed_video_url}) = _$_SiteMetadata;
   const _SiteMetadata._() : super._();
 
   factory _SiteMetadata.fromJson(Map<String, dynamic> json) =
@@ -3727,10 +3866,8 @@ abstract class _SiteMetadata extends SiteMetadata {
   String? get description;
   @override
   String? get image;
-  @override
-  String? get html;
-  @override
-  String get instanceHost;
+  @override // ignore: non_constant_identifier_names
+  String? get embed_video_url;
   @override
   @JsonKey(ignore: true)
   _$$_SiteMetadataCopyWith<_$_SiteMetadata> get copyWith =>

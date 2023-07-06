@@ -5,6 +5,7 @@ import 'util.dart';
 
 void main() {
   group('lemmy API v3', () {
+
     group('site', () {
       group('Search', () {
         test(
@@ -181,6 +182,7 @@ void main() {
 
   group('lemmy API v3', () {
     group('community', () {
+      setUp(() async => await ensureJWT());
       group('GetCommunity', () {
         test(
           'correctly fetches',
@@ -242,7 +244,7 @@ void main() {
           FullCommunityView community = await lemmy.run(GetCommunity(
             name: goodCommunityName,
             auth: goodAuth,
-          ));
+          ),);
           goodCommunityId = community.communityView.community.id;
         });
 
@@ -285,8 +287,9 @@ void main() {
           FullCommunityView community = await lemmy.run(GetCommunity(
             name: goodCommunityName,
             auth: goodAuth,
-          ));
+          ),);
           goodCommunityId = community.communityView.community.id;
+    await ensureJWT();
         });
 
         test(
@@ -322,11 +325,13 @@ void main() {
   });
 
   group('lemmy API v3', () {
+
+    setUp(() async => await ensureJWT());
     group('comment', () {
       group('CreateComment', () {
         test('correctly creates comment', () async {
           FullCommentView comment = await lemmy.run(CreateComment(
-              content: "test", postId: goodPostId, auth: goodAuth));
+              content: "test", postId: goodPostId, auth: goodAuth,),);
           goodCommentId = comment.commentView.comment.id;
         });
       });
@@ -336,14 +341,14 @@ void main() {
           FullCommunityView community = await lemmy.run(GetCommunity(
             name: goodCommunityName,
             auth: goodAuth,
-          ));
+          ),);
           goodCommunityId = community.communityView.community.id;
 
           PostView post = await lemmy.run(CreatePost(
-              name: "testtt", communityId: goodCommunityId, auth: goodAuth));
+              name: "testtt", communityId: goodCommunityId, auth: goodAuth,),);
 
           FullCommentView comment = await lemmy.run(CreateComment(
-              content: "test", postId: post.post.id, auth: goodAuth));
+              content: "test", postId: post.post.id, auth: goodAuth,),);
           goodMyCommentId = comment.commentView.comment.id;
         });
 
@@ -569,12 +574,25 @@ void main() {
   });
 
   group('lemmy API v3', () {
+
+    group('Login', (){
+        test('can login', () async {
+          LoginResponse response = await lemmy.run(Login(usernameOrEmail: goodUsername
+        , password: goodPassword,
+        ),);
+        goodAuth = response.jwt!.raw;
+        });
+        
+      });
+
     group('person', () {
-      group('Login', () {});
+      
+      setUp(() async => await ensureJWT());
 
       group('Register', () {});
 
       group('GetCaptcha', () {
+
         test(
           'correctly fetches',
           () => lemmy.run(const GetCaptcha()),
@@ -584,7 +602,8 @@ void main() {
       group('SaveUserSettings', () {
         test(
           'correctly saves',
-          () => lemmy.run(
+          () async {
+            LoginResponse response = await lemmy.run(
             SaveUserSettings(
               showNsfw: true,
               theme: 'browser',
@@ -595,7 +614,8 @@ void main() {
               sendNotificationsToEmail: true,
               auth: goodAuth,
             ),
-          ),
+          );
+          },
         );
 
         test(
@@ -882,6 +902,7 @@ void main() {
   });
 
   group('lemmy API v3', () {
+    setUp(() async => await ensureJWT());
     group('post', () {
       group('GetPost', () {
         test(
@@ -922,7 +943,7 @@ void main() {
           FullCommunityView community = await lemmy.run(GetCommunity(
             name: goodCommunityName,
             auth: goodAuth,
-          ));
+          ),);
           goodCommunityId = community.communityView.community.id;
         });
 
@@ -1098,11 +1119,14 @@ void main() {
 
       group('GetSiteMetadata', () {
         test('correctly fetches', () async {
-          final metadata = await lemmy.run(
+          final response = await lemmy.run(
             const GetSiteMetadata(
               url: 'https://www.google.com',
             ),
           );
+
+          var metadata = response.metadata;
+
           print(metadata.description);
 
           expect(metadata.title, 'Google');

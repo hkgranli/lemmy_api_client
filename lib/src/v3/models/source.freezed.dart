@@ -591,9 +591,10 @@ abstract class $LocalUserSettingsCopyWith<$Res> {
       bool showNsfw,
       String theme,
       @JsonKey(fromJson: sortTypeFromString, toJson: sortTypeToString)
-          SortType defaultSortType,
-      @JsonKey(fromJson: postListingTypeFromString, toJson: postListingTypeToString)
-          PostListingType defaultListingType,
+      SortType defaultSortType,
+      @JsonKey(
+          fromJson: postListingTypeFromString, toJson: postListingTypeToString)
+      PostListingType defaultListingType,
       String? lang,
       bool showAvatars,
       bool showScores,
@@ -725,9 +726,10 @@ abstract class _$$_LocalUserSettingsCopyWith<$Res>
       bool showNsfw,
       String theme,
       @JsonKey(fromJson: sortTypeFromString, toJson: sortTypeToString)
-          SortType defaultSortType,
-      @JsonKey(fromJson: postListingTypeFromString, toJson: postListingTypeToString)
-          PostListingType defaultListingType,
+      SortType defaultSortType,
+      @JsonKey(
+          fromJson: postListingTypeFromString, toJson: postListingTypeToString)
+      PostListingType defaultListingType,
       String? lang,
       bool showAvatars,
       bool showScores,
@@ -853,9 +855,10 @@ class _$_LocalUserSettings extends _LocalUserSettings {
       required this.showNsfw,
       required this.theme,
       @JsonKey(fromJson: sortTypeFromString, toJson: sortTypeToString)
-          required this.defaultSortType,
-      @JsonKey(fromJson: postListingTypeFromString, toJson: postListingTypeToString)
-          required this.defaultListingType,
+      required this.defaultSortType,
+      @JsonKey(
+          fromJson: postListingTypeFromString, toJson: postListingTypeToString)
+      required this.defaultListingType,
       this.lang,
       required this.showAvatars,
       required this.showScores,
@@ -996,9 +999,10 @@ abstract class _LocalUserSettings extends LocalUserSettings {
       required final bool showNsfw,
       required final String theme,
       @JsonKey(fromJson: sortTypeFromString, toJson: sortTypeToString)
-          required final SortType defaultSortType,
-      @JsonKey(fromJson: postListingTypeFromString, toJson: postListingTypeToString)
-          required final PostListingType defaultListingType,
+      required final SortType defaultSortType,
+      @JsonKey(
+          fromJson: postListingTypeFromString, toJson: postListingTypeToString)
+      required final PostListingType defaultListingType,
       final String? lang,
       required final bool showAvatars,
       required final bool showScores,

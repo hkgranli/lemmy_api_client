@@ -343,13 +343,24 @@ Map<String, dynamic> _$$_ResolveObjectResponseToJson(
       'instance_host': instance.instanceHost,
     };
 
+_$_GetSiteMetadataResponse _$$_GetSiteMetadataResponseFromJson(
+        Map<String, dynamic> json) =>
+    _$_GetSiteMetadataResponse(
+      metadata: SiteMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_GetSiteMetadataResponseToJson(
+        _$_GetSiteMetadataResponse instance) =>
+    <String, dynamic>{
+      'metadata': instance.metadata.toJson(),
+    };
+
 _$_SiteMetadata _$$_SiteMetadataFromJson(Map<String, dynamic> json) =>
     _$_SiteMetadata(
       title: json['title'] as String?,
       description: json['description'] as String?,
       image: json['image'] as String?,
-      html: json['html'] as String?,
-      instanceHost: json['instance_host'] as String,
+      embed_video_url: json['embed_video_url'] as String?,
     );
 
 Map<String, dynamic> _$$_SiteMetadataToJson(_$_SiteMetadata instance) =>
@@ -357,8 +368,7 @@ Map<String, dynamic> _$$_SiteMetadataToJson(_$_SiteMetadata instance) =>
       'title': instance.title,
       'description': instance.description,
       'image': instance.image,
-      'html': instance.html,
-      'instance_host': instance.instanceHost,
+      'embed_video_url': instance.embed_video_url,
     };
 
 _$_BlockedPerson _$$_BlockedPersonFromJson(Map<String, dynamic> json) =>

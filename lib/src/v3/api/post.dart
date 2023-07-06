@@ -246,7 +246,7 @@ class SavePost with _$SavePost implements LemmyApiQuery<PostView> {
 @freezed
 class GetSiteMetadata
     with _$GetSiteMetadata
-    implements LemmyApiQuery<SiteMetadata> {
+    implements LemmyApiQuery<GetSiteMetadataResponse> {
   @apiSerde
   const factory GetSiteMetadata({
     required String url,
@@ -256,13 +256,13 @@ class GetSiteMetadata
   factory GetSiteMetadata.fromJson(Map<String, dynamic> json) =>
       _$GetSiteMetadataFromJson(json);
 
-  final path = '';
+  final path = '/post/site_metadata';
 
   final httpMethod = HttpMethod.get;
 
   @override
-  SiteMetadata responseFactory(Map<String, dynamic> json) =>
-      SiteMetadata.fromJson(json['metadata']);
+  GetSiteMetadataResponse responseFactory(Map<String, dynamic> json) =>
+      GetSiteMetadataResponse.fromJson(json['metadata']);
 }
 
 @freezed

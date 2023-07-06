@@ -226,6 +226,21 @@ class ResolveObjectResponse with _$ResolveObjectResponse {
       _$ResolveObjectResponseFromJson(json);
 }
 
+
+@freezed
+class GetSiteMetadataResponse with _$GetSiteMetadataResponse{
+  @modelSerde
+  const factory GetSiteMetadataResponse({
+    required SiteMetadata metadata,
+  }) = _GetSiteMetadataResponse;
+
+  const GetSiteMetadataResponse._();
+
+  //factory GetSiteMetadataResponse.fromJson(Map<String, dynamic> json) => _$GetSiteMetadataResponseFromJson(json);
+  factory GetSiteMetadataResponse.fromJson(Map<String, dynamic> json) =>
+      _$GetSiteMetadataResponseFromJson(json);
+}
+
 @freezed
 class SiteMetadata with _$SiteMetadata {
   @modelSerde
@@ -233,9 +248,9 @@ class SiteMetadata with _$SiteMetadata {
     String? title,
     String? description,
     String? image,
-    String? html,
-    required String instanceHost,
-  }) = _SiteMetadata;
+    // ignore: non_constant_identifier_names
+    String? embed_video_url,
+  }) = _SiteMetadata; 
 
   const SiteMetadata._();
   factory SiteMetadata.fromJson(Map<String, dynamic> json) =>
